@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.translator-card {
+    background: rgba(255, 255, 255, 0.97);
+
+    border-radius: 25px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   LANGUAGE SECTION
+========================= */
+
+.language-section {
+    display: flex;
+    align-items: end;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.language-box {
+    flex: 1;
+}
+
+.language-box label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #444;
+}
+
+select {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    background: white;
+
+    cursor: pointer;
+
+    outline: none;
+}
+
+select:focus {
+    border-color: #667eea;
+
+    box-shadow:
+        0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+/* =========================
+   SWAP BUTTON
+========================= */
+
+.swap-btn {
+    width: 48px;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #667eea;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.swap-btn:hover {
+    transform: rotate(180deg);
+
+    background: #5568d8;
+}
+
+/* =========================
+   TRANSLATION AREA
+========================= */
+
+.translation-area {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+/* =========================
+   INPUT / OUTPUT BOX
+========================= */
+
+.input-box,
+.output-box {
+    border: 1px solid #ddd;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    min-height: 300px;
+
+    position: relative;
+
+    background: white;
+}
+
+/* =========================
+   BOX HEADER
+========================= */
+
+.box-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 15px 18px;
+
+    background: #f7f7f9;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #555;
+}
+
+/* =========================
+   TEXT AREA
+========================= */
+
+textarea {
+    width: 100%;
+
+    height: 220px;
+
+    border: none;
+
+    resize: none;
+
+    outline: none;
+
+    padding: 20px;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    font-family: inherit;
+}
+
+textarea::placeholder {
+    color: #aaa;
+}
+
+/* =========================
+   TRANSLATION RESULT
+========================= */
+
+.translation-result {
+    height: 220px;
+
+    padding: 20px;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    overflow-y: auto;
+
+    color: #333;
+}
+
+/* =========================
+   CLEAR BUTTON
+========================= */
+
+.clear-btn {
+    position: absolute;
+
+    bottom: 12px;
+
+    right: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.clear-btn:hover {
+    color: #667eea;
+}
+
+/* =========================
+   OUTPUT BUTTONS
+========================= */
+
+.output-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    padding: 10px 15px;
+}
+
+.output-buttons button {
+    border: none;
+
+    padding: 9px 15px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    background: #eeeeff;
+
+    color: #444;
+
+    transition: 0.2s;
+}
+
+.output-buttons button:hover {
+    background: #667eea;
+
+    color: white;
+}
+
+/* =========================
+   TRANSLATE BUTTON
+========================= */
+
+.translate-btn {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: #667eea;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.translate-btn:hover {
+    background: #5568d8;
+
+    transform: translateY(-2px);
+}
+
+.translate-btn:active {
+    transform: translateY(0);
+}
+
+.translate-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+/* =========================
+   STATUS MESSAGE
+========================= */
+
+#statusMessage {
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 14px;
+
+    min-height: 20px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    color: white;
+
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    opacity: 0.8;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.translation-result::-webkit-scrollbar {
+    width: 6px;
+}
+
+.translation-result::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.translation-result::-webkit-scrollbar-thumb {
+    background: #bbb;
+
+    border-radius: 10px;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .translator-card {
+        padding: 20px;
+    }
+
+    .translation-area {
+        grid-template-columns: 1fr;
+    }
+
+    .language-section {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .swap-btn {
+        align-self: center;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    textarea {
+        height: 200px;
+    }
+
+    .translation-result {
+        height: 200px;
+    }
+}
